@@ -10,7 +10,8 @@ namespace IceCreamAPI.Interface
     {
         List<T> GetAll();
         T GetId(string Id);
-        T Delete(string id);
+        T GetId(int Id);
+        bool Delete(string id);
 
         T Insert(T t);
 

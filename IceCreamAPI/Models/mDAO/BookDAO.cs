@@ -3,7 +3,6 @@ using IceCreamAPI.Models.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace IceCreamAPI.Models.mDAO
 {
@@ -13,11 +12,6 @@ namespace IceCreamAPI.Models.mDAO
         public static BookDAO GetInstance()
         {
             return Instance;
-        }
-
-        public BookDTO Delete(string id)
-        {
-            throw new NotImplementedException();
         }
 
         public List<BookDTO> GetAll()
@@ -55,12 +49,56 @@ namespace IceCreamAPI.Models.mDAO
             return bookDTO;
         }
 
-        public BookDTO Insert(BookDTO t)
+        public BookDTO Insert(BookDTO bookDTO)
         {
-            throw new NotImplementedException();
+
+            try
+            {
+                Book book = new Book
+                {
+                    BookId = bookDTO.BookId,
+                    Title = 'N' + bookDTO.Title,
+                    Descr = 'N' + bookDTO.Descr,
+                    ReleasedDate = bookDTO.ReleasedDate,
+                    Price = bookDTO.Price
+                };
+                DbConnection.iceCreamDb.Books.Add(book);
+                DbConnection.iceCreamDb.SaveChanges();
+                return bookDTO;
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException e)
+            {
+                throw e;
+            }
         }
 
-        public BookDTO Update(BookDTO t)
+        public BookDTO Update(BookDTO bookDTO)
+        {
+            var sql = DbConnection.iceCreamDb.Books.Where(x => x.BookId == bookDTO.BookId).FirstOrDefault();
+            sql.BookId = bookDTO.BookId;
+            sql.Descr = bookDTO.Descr;
+            sql.ReleasedDate = bookDTO.ReleasedDate;
+            sql.Title = bookDTO.Title;
+            sql.Price = bookDTO.Price;
+
+            DbConnection.iceCreamDb.SaveChanges();
+            return bookDTO;
+        }
+
+        public bool Delete(string Id)
+        {
+           
+            var sql = DbConnection.iceCreamDb.Books.Where(x => x.BookId == Id).FirstOrDefault();
+            if(sql != null)
+            {
+                DbConnection.iceCreamDb.Books.Remove(sql);
+                DbConnection.iceCreamDb.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
+        public BookDTO GetId(int Id)
         {
             throw new NotImplementedException();
         }

@@ -24,5 +24,24 @@ namespace IceCreamAPI.Controllers
         {
             return BookDAO.GetInstance().GetId(Id);
         }
+        [HttpPost]
+        [ActionName("InsertBook")]
+        public BookDTO insertBook(BookDTO bookDTO)
+        {
+            return BookDAO.GetInstance().Insert(bookDTO);
+        }
+
+        [HttpPut]
+        [ActionName("UpdateBook")]
+        public BookDTO UpdateBook(BookDTO bookDTO)
+        {
+            return BookDAO.GetInstance().Update(bookDTO);
+        }
+        [HttpDelete]
+        [ActionName("DeleteBook")]
+        public bool DeleteBook(string Id)
+        {
+            return BookDAO.GetInstance().Delete(Id);
+        }
     }
 }
