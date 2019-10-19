@@ -5,7 +5,7 @@ using System.Web;
 
 namespace IceCreamAPI.Models
 {
-    public class Book
+    public class BookDTO
     {
         public string BookId { get; set; }
         public string Title { get; set; }

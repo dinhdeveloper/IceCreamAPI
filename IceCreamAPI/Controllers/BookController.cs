@@ -13,10 +13,16 @@ namespace IceCreamAPI.Controllers
     {
         [HttpGet]
         [ActionName("getAllBook")]
-        public IEnumerable<Book> getAllBook()
+        public IEnumerable<BookDTO> getAllBook()
         {
-            BookDAO bookDAO = new BookDAO();
-            return bookDAO.GetAll();
+
+            return BookDAO.GetInstance().GetAll();
+        }
+        [HttpGet]
+        [ActionName("GetOneBook")]
+        public BookDTO getOneBook(string Id)
+        {
+            return BookDAO.GetInstance().GetId(Id);
         }
     }
 }

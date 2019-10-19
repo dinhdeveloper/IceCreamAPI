@@ -53,6 +53,7 @@ E:\WebService\IceCreamAPI\IceCreamAPI\bin\EntityFramework.SqlServer.dll
 E:\WebService\IceCreamAPI\IceCreamAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 E:\WebService\IceCreamAPI\IceCreamAPI\bin\Microsoft.Web.Infrastructure.dll
 E:\WebService\IceCreamAPI\IceCreamAPI\bin\Newtonsoft.Json.dll
+E:\WebService\IceCreamAPI\IceCreamAPI\bin\Swashbuckle.Core.dll
 E:\WebService\IceCreamAPI\IceCreamAPI\bin\System.Net.Http.Formatting.dll
 E:\WebService\IceCreamAPI\IceCreamAPI\bin\System.Web.Helpers.dll
 E:\WebService\IceCreamAPI\IceCreamAPI\bin\System.Web.Http.dll
@@ -63,6 +64,7 @@ E:\WebService\IceCreamAPI\IceCreamAPI\bin\System.Web.Razor.dll
 E:\WebService\IceCreamAPI\IceCreamAPI\bin\System.Web.WebPages.Deployment.dll
 E:\WebService\IceCreamAPI\IceCreamAPI\bin\System.Web.WebPages.dll
 E:\WebService\IceCreamAPI\IceCreamAPI\bin\System.Web.WebPages.Razor.dll
+E:\WebService\IceCreamAPI\IceCreamAPI\bin\WebActivatorEx.dll
 E:\WebService\IceCreamAPI\IceCreamAPI\bin\WebGrease.dll
 E:\WebService\IceCreamAPI\IceCreamAPI\bin\EntityFramework.xml
 E:\WebService\IceCreamAPI\IceCreamAPI\bin\EntityFramework.SqlServer.xml

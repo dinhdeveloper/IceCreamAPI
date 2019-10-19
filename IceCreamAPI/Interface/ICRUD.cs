@@ -9,8 +9,8 @@ namespace IceCreamAPI.Interface
    public interface ICRUD<T>
     {
         List<T> GetAll();
-        T GetId(int Id);
-        T Delete(int id);
+        T GetId(string Id);
+        T Delete(string id);
 
         T Insert(T t);
 
