@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IceCreamWebProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="BookId" />
+    </Key>
+    <Property Name="BookId" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Descr" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ReleasedDate" Type="DateTime" Precision="0" />
+    <Property Name="Price" Type="Double" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CatId" />
+    </Key>
+    <Property Name="CatId" Type="Int32" Nullable="false" />
+    <Property Name="CatName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="ContactId" />
+    </Key>
+    <Property Name="ContactId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="Int64" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Feedback">
+    <Key>
+      <PropertyRef Name="FeedbackId" />
+    </Key>
+    <Property Name="FeedbackId" Type="Int32" Nullable="false" />
+    <Property Name="SubjectId" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CreDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Flavor">
+    <Key>
+      <PropertyRef Name="FlavorId" />
+    </Key>
+    <Property Name="FlavorId" Type="Int32" Nullable="false" />
+    <Property Name="FlavorName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="IceCream">
+    <Key>
+      <PropertyRef Name="IceCreamId" />
+    </Key>
+    <Property Name="IceCreamId" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IceCreamName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Descr" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReleasedDate" Type="DateTime" Precision="0" />
+    <Property Name="Price" Type="Double" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="IceCream_Flavor">
+    <Key>
+      <PropertyRef Name="IceCreamId" />
+      <PropertyRef Name="FlavorId" />
+    </Key>
+    <Property Name="IceCreamId" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FlavorId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="Int32" Nullable="false" />
+    <Property Name="TransactionId" Type="Int32" />
+    <Property Name="OrderStatusId" Type="Int32" />
+    <Property Name="ReceiverName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DeliveryAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReceiverEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ReceiverPhone" Type="Int64" />
+    <Property Name="TotalPrice" Type="Double" />
+    <Property Name="CreDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="OrderDetailId" />
+    </Key>
+    <Property Name="OrderDetailId" Type="Int32" Nullable="false" />
+    <Property Name="OrderId" Type="Int32" />
+    <Property Name="BookId" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="Quantity" Type="Int32" />
+  </EntityType>
+  <EntityType Name="OrderStatu">
+    <Key>
+      <PropertyRef Name="OrderStatusId" />
+    </Key>
+    <Property Name="OrderStatusId" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Int16" />
+  </EntityType>
+  <EntityType Name="PaymentAccount">
+    <Key>
+      <PropertyRef Name="PaymentAccId" />
+    </Key>
+    <Property Name="PaymentAccId" Type="Int32" Nullable="false" />
+    <Property Name="CardNumber" Type="Int64" />
+    <Property Name="CardHolder" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Recipe">
+    <Key>
+      <PropertyRef Name="RecipeId" />
+    </Key>
+    <Property Name="RecipeId" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="CatId" Type="Int32" />
+    <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Descr" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="MainContext" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CoverImg" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CreDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdDate" Type="DateTime" Precision="3" />
+    <Property Name="ViewCount" Type="Int32" />
+    <Property Name="Free" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Recipe_Flavor">
+    <Key>
+      <PropertyRef Name="RecipeId" />
+      <PropertyRef Name="FlavorId" />
+    </Key>
+    <Property Name="RecipeId" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FlavorId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TransactionHistory">
+    <Key>
+      <PropertyRef Name="TransactionId" />
+    </Key>
+    <Property Name="TransactionId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="FromAccId" Type="Int32" />
+    <Property Name="ToAccId" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int16" />
+    <Property Name="Note" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="TransactionId" Type="Int32" />
+    <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreDate" Type="DateTime" Precision="3" />
+    <Property Name="Role" Type="Int16" />
+    <Property Name="UserToken" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityContainer Name="IceCreamWebProjectEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Books" EntityType="Self.Book" />
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Contacts" EntityType="Self.Contact" />
+    <EntitySet Name="Feedbacks" EntityType="Self.Feedback" />
+    <EntitySet Name="Flavors" EntityType="Self.Flavor" />
+    <EntitySet Name="IceCreams" EntityType="Self.IceCream" />
+    <EntitySet Name="IceCream_Flavor" EntityType="Self.IceCream_Flavor" />
+    <EntitySet Name="Orders" EntityType="Self.Order" />
+    <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
+    <EntitySet Name="OrderStatus" EntityType="Self.OrderStatu" />
+    <EntitySet Name="PaymentAccounts" EntityType="Self.PaymentAccount" />
+    <EntitySet Name="Recipes" EntityType="Self.Recipe" />
+    <EntitySet Name="Recipe_Flavor" EntityType="Self.Recipe_Flavor" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="TransactionHistories" EntityType="Self.TransactionHistory" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+  </EntityContainer>
+</Schema>

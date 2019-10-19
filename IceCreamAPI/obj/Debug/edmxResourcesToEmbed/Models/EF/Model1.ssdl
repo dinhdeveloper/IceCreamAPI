@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IceCreamWebProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="BookId" />
+    </Key>
+    <Property Name="BookId" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="100" />
+    <Property Name="Descr" Type="varchar" MaxLength="500" />
+    <Property Name="ReleasedDate" Type="date" />
+    <Property Name="Price" Type="float" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CatId" />
+    </Key>
+    <Property Name="CatId" Type="int" Nullable="false" />
+    <Property Name="CatName" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="ContactId" />
+    </Key>
+    <Property Name="ContactId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+    <Property Name="Address" Type="varchar" MaxLength="200" />
+    <Property Name="PhoneNumber" Type="bigint" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Feedback">
+    <Key>
+      <PropertyRef Name="FeedbackId" />
+    </Key>
+    <Property Name="FeedbackId" Type="int" Nullable="false" />
+    <Property Name="SubjectId" Type="varchar" MaxLength="7" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="Name" Type="varchar" MaxLength="20" />
+    <Property Name="Text" Type="text" />
+    <Property Name="CreDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Flavor">
+    <Key>
+      <PropertyRef Name="FlavorId" />
+    </Key>
+    <Property Name="FlavorId" Type="int" Nullable="false" />
+    <Property Name="FlavorName" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="IceCream">
+    <Key>
+      <PropertyRef Name="IceCreamId" />
+    </Key>
+    <Property Name="IceCreamId" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="IceCreamName" Type="varchar" MaxLength="30" />
+    <Property Name="Descr" Type="varchar" MaxLength="200" />
+    <Property Name="ReleasedDate" Type="date" />
+    <Property Name="Price" Type="float" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="IceCream_Flavor">
+    <Key>
+      <PropertyRef Name="IceCreamId" />
+      <PropertyRef Name="FlavorId" />
+    </Key>
+    <Property Name="IceCreamId" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="FlavorId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="int" Nullable="false" />
+    <Property Name="TransactionId" Type="int" />
+    <Property Name="OrderStatusId" Type="int" />
+    <Property Name="ReceiverName" Type="varchar" MaxLength="50" />
+    <Property Name="DeliveryAddress" Type="varchar" MaxLength="200" />
+    <Property Name="ReceiverEmail" Type="varchar" MaxLength="100" />
+    <Property Name="ReceiverPhone" Type="bigint" />
+    <Property Name="TotalPrice" Type="float" />
+    <Property Name="CreDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="OrderDetailId" />
+    </Key>
+    <Property Name="OrderDetailId" Type="int" Nullable="false" />
+    <Property Name="OrderId" Type="int" />
+    <Property Name="BookId" Type="varchar" MaxLength="7" />
+    <Property Name="Quantity" Type="int" />
+  </EntityType>
+  <EntityType Name="OrderStatus">
+    <Key>
+      <PropertyRef Name="OrderStatusId" />
+    </Key>
+    <Property Name="OrderStatusId" Type="int" Nullable="false" />
+    <Property Name="Status" Type="smallint" />
+  </EntityType>
+  <EntityType Name="PaymentAccount">
+    <Key>
+      <PropertyRef Name="PaymentAccId" />
+    </Key>
+    <Property Name="PaymentAccId" Type="int" Nullable="false" />
+    <Property Name="CardNumber" Type="bigint" />
+    <Property Name="CardHolder" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Recipe">
+    <Key>
+      <PropertyRef Name="RecipeId" />
+    </Key>
+    <Property Name="RecipeId" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="CatId" Type="int" />
+    <Property Name="Title" Type="varchar" MaxLength="100" />
+    <Property Name="Descr" Type="varchar" MaxLength="200" />
+    <Property Name="MainContext" Type="text" />
+    <Property Name="CoverImg" Type="varchar" MaxLength="20" />
+    <Property Name="CreDate" Type="datetime" />
+    <Property Name="UpdDate" Type="datetime" />
+    <Property Name="ViewCount" Type="int" />
+    <Property Name="Free" Type="bit" />
+  </EntityType>
+  <EntityType Name="Recipe_Flavor">
+    <Key>
+      <PropertyRef Name="RecipeId" />
+      <PropertyRef Name="FlavorId" />
+    </Key>
+    <Property Name="RecipeId" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="FlavorId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TransactionHistory">
+    <Key>
+      <PropertyRef Name="TransactionId" />
+    </Key>
+    <Property Name="TransactionId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="FromAccId" Type="int" />
+    <Property Name="ToAccId" Type="int" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Status" Type="smallint" />
+    <Property Name="Note" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="TransactionId" Type="int" />
+    <Property Name="Username" Type="varchar" MaxLength="20" />
+    <Property Name="Password" Type="varchar" MaxLength="20" />
+    <Property Name="DisplayName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="CreDate" Type="datetime" />
+    <Property Name="Role" Type="smallint" />
+    <Property Name="UserToken" Type="varchar" MaxLength="100" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityContainer Name="IceCreamWebProjectModelStoreContainer">
+    <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Feedback" EntityType="Self.Feedback" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Flavor" EntityType="Self.Flavor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IceCream" EntityType="Self.IceCream" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IceCream_Flavor" EntityType="Self.IceCream_Flavor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PaymentAccount" EntityType="Self.PaymentAccount" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Recipe" EntityType="Self.Recipe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Recipe_Flavor" EntityType="Self.Recipe_Flavor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TransactionHistory" EntityType="Self.TransactionHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
